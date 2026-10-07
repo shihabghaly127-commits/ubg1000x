@@ -6,6 +6,11 @@
     <title>UBG100x</title>
     <!-- Put icon.png and banner.png in the assets/ folder (or change the paths below) -->
     <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icon.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="UBG100x game library">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -309,6 +314,15 @@
             );
             schedule();
         })();
+    </script>
+
+    <script>
+        /* PWA: register the service worker (needs HTTPS or localhost) */
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("sw.js").catch(function () {});
+            });
+        }
     </script>
 </body>
 </html>
